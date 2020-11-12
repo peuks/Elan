@@ -200,6 +200,11 @@ $livre2->setAuthor($auteur1);
 <h1>Attention Est ce que ça va marcher ? JE NE SAIS PAS :o </h1>
 <?php $auteur1->addBook($livre3); ?>
 
+<?php
+$auteur1->addBook($livre3);
+$livre3->setAuthor($auteur1);
+?>
+
 <h4>vérifier l'auteur du livre 3</h4>
 <p> L'auteur du livre <?php echo $livre3->getTitle(); ?> est <?php echo $livre3->getAuthor(); ?></p>
 

@@ -1,80 +1,76 @@
 @import "/css/normalize.css";
 
 :root {
-    --clr-1: #2B2D42;
-    --clr-2: #E86A92;
-    --clr-3: #F7E733;
-    --clr-4: #F7F7F9;
-    --clr-5: #41E2BA;
-    --clr-6: #C1666B;
+  --clr-1: #2b2d42;
+  --clr-2: #e86a92;
+  --clr-3: #f7e733;
+  --clr-4: #f7f7f9;
+  --clr-5: #41e2ba;
+  --clr-6: #c1666b;
 
-    --dark80: rgba(188, 192, 194, 0.8);
-    --dark60: rgba(188, 192, 194, 0.6);
-    --transition: all 0.3s ease 0s;
+  --dark80: rgba(188, 192, 194, 0.8);
+  --dark60: rgba(188, 192, 194, 0.6);
+  --transition: all 0.3s ease 0s;
 
-    --ff: 'Inter', sans-serif;
-    --fw-reg: 300;
-    --fw-bold: 900;
+  --ff: "Inter", sans-serif;
+  --fw-reg: 300;
+  --fw-bold: 900;
 
-    --fs-h1: 2.2rem;
-    --fs-h2: 2.0rem;
-    --fs-h3: 1.6rem;
-    --fs-h4: 1.4rem;
-    --fs-h5: 1.2rem;
-    --fs-body: 1rem;
+  --fs-h1: 2.2rem;
+  --fs-h2: 2rem;
+  --fs-h3: 1.6rem;
+  --fs-h4: 1.4rem;
+  --fs-h5: 1.2rem;
+  --fs-body: 1rem;
 
-    --cell-seize: 100px;
-    --mark-seize: calc(var(--cell-seize)*.9)
-        /* 90 % of cell seize*/
-    ;
+  --cell-seize: 100px;
+  --mark-seize: calc(var(--cell-seize) * 0.9) /* 90 % of cell seize*/;
 }
 
 /* Reset class*/
 * {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-    background:
-        linear-gradient(var(--dark60),
-            var(--dark80)),
-        url("https://source.unsplash.com/daily");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: var(--ff);
+  background: linear-gradient(var(--dark60), var(--dark80)),
+    url("https://source.unsplash.com/daily");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: var(--ff);
 }
 
 /* TYPOGRAPHY */
 
 h1 {
-    font-size: var(--fs-h1);
+  font-size: var(--fs-h1);
 }
 
 h2 {
-    font-size: var(--fs-h2);
+  font-size: var(--fs-h2);
 }
 
 h3 {
-    font-size: var(--fs-h3);
+  font-size: var(--fs-h3);
 }
 
 h4 {
-    font-size: var(--fs-h4);
+  font-size: var(--fs-h4);
 }
 
 h5 {
-    font-size: var(--fs-h5);
+  font-size: var(--fs-h5);
 }
 
 /* Header
@@ -83,142 +79,160 @@ h5 {
 
 /* Your template */
 
-@media screen and (min-with:1400px) {}
+@media screen and (min-with: 1400px) {
+}
 
+@media screen and (min-with: 960px) {
+}
 
-@media screen and (min-with:960px) {}
+@media screen and (min-with: 700px) {
+}
 
-@media screen and (min-with:700px) {}
-
-@media screen and (min-with:560px) {}
+@media screen and (min-with: 560px) {
+}
 
 .board {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    /* Center Mark in each cell */
-    justify-items: center;
-    justify-items: center;
-    grid-template-columns: repeat(3, auto);
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  /* Center Mark in each cell */
+  justify-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(3, auto);
 }
 
 .cell {
-    width: var(--cell-seize);
-    height: var(--cell-seize);
-    border: solid 3px var(--clr-1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-
+  /* By Default 100px */
+  width: var(--cell-seize);
+  height: var(--cell-seize);
+  border: solid 3px var(--clr-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
 }
 
 /* Remove Border Top  */
-.cell:nth-child(1n+1) {
-    border-top: none;
+.cell:nth-child(1n + 1) {
+  border-top: none;
 }
 
 /* Remove Border Bottom */
-.cell:nth-child(3n+1) {
-    border-left: none;
-    border-right: none;
+.cell:nth-child(3n + 1) {
+  border-left: none;
+  border-right: none;
 }
 
 /* Remove Border Righr */
-.cell:nth-child(3n+3) {
-    border-right: none;
-    border-left: none;
+.cell:nth-child(3n + 3) {
+  border-right: none;
+  border-left: none;
 }
 
 /* Remove Border Bottom */
-.cell:nth-child(n+7) {
-    border-bottom: none;
+.cell:nth-child(n + 7) {
+  border-bottom: none;
 }
 
+/* When a cell has a x || y class => change the cursor to not allowed  */
 .cell.x,
-.cell.cell.y {
-    cursor: not-allowed;
+.cell.y {
+  cursor: not-allowed;
 }
 
 .cell.x::before,
 .cell.x::after,
 .board.x .cell:not(.x):not(.y):hover::before,
 .board.x .cell:not(.x):not(.y):hover::after {
-    content: "";
-    /* 25%  of 90% of cell seize*/
-    width: calc(var(--mark-seize)*0.15);
-    height: var(--mark-seize);
-    background-color: var(--clr-1);
-    position: absolute;
+  content: "";
+  /* 25%  of 90% of cell seize*/
+  width: calc(var(--mark-seize) * 0.15);
+  height: var(--mark-seize);
+  background-color: var(--clr-1);
+  position: absolute;
 }
 
+/* When the board has x || y class and we're not on a X cell 
+( cell has been checked )  with a hover effect on before and after element 
+Then change the color of our x || y hover element */
 .board.x .cell:not(.x):not(.y):hover::before,
 .board.x .cell:not(.x):not(.y):hover::after {
-    background-color: lightgray;
+  background-color: lightgray;
 }
-
 
 .cell.x::before,
 .board.x .cell:hover::before {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .cell.x::after,
 .board.x .cell:hover::after {
-    transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
-
-
 
 .cell.y::before,
-.cell.y::after {
-    content: "";
-    /* 25%  of 90% of cell seize*/
-    width: var(--mark-seize);
-    height: var(--mark-seize);
-    background-color: var(--clr-1);
-    position: absolute;
+.cell.y::after,
+.board.y .cell:not(.y):not(.x):hover::before,
+.board.y .cell:not(.y):not(.x):hover::after {
+  content: "";
+  /* 25%  of 90% of cell seize*/
+  width: var(--mark-seize);
+  height: var(--mark-seize);
+  background-color: var(--clr-1);
+  position: absolute;
 }
-
+.board.y .cell:not(.y):not(.x):hover::before,
 .cell.y::before {
-    border-radius: 50%;
-
+  border-radius: 50%;
 }
 
-.cell.y::after {
-    width: calc(var(--mark-seize)*0.7);
-    height: calc(var(--mark-seize)*0.7);
-    background-color: var(--clr-4);
-    border-radius: 50%;
+.cell.y::after,
+.board.y .cell:not(.y):not(.x):hover::after {
+  width: calc(var(--mark-seize) * 0.7);
+  height: calc(var(--mark-seize) * 0.7);
+  /* What can i do to have a transparent circle ? */
+  background-color: var(--clr-4);
+  border-radius: 50%;
 }
 
+.board.y .cell:not(.y):not(.x):hover::before {
+  background-color: lightgray;
+}
+.board.y .cell:not(.y):not(.x):hover::after {
+  opacity: 0.5;
+  background-color: rgba(49, 50, 51, 0.6);
+}
 .winning-message {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, .9);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    font-size: 5rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Change display fo flex in javascript */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-size: 5rem;
 }
 
+.show {
+  display: flex;
+}
 .winning-message button {
-    font-size: 3rem;
-    background-color: white;
-    border: 1px solid black;
-    padding: .25em .5em;
+  font-size: 3rem;
+  background-color: white;
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
 }
 
 .winning-message button:hover {
-    background-color: black;
-    border: 1px solid white;
-    color: white;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
 }
