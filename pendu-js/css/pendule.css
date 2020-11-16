@@ -1,0 +1,47 @@
+.circle {
+  margin: auto;
+  height: 300px;
+  width: 300px;
+  border-radius: 100%;
+  background: var(--clr-1);
+  box-shadow: var(--bs);
+}
+
+h1 {
+  color: #d5e2d6;
+  text-align: center;
+  line-height: 50px;
+  margin-top: -228px;
+  -moz-transform: scale(1) rotate(-5deg) translateX(0px) translateY(0px)
+    skewX(1deg) skewY(1deg);
+  -webkit-transform: scale(1) rotate(-5deg) translateX(0px) translateY(0px)
+    skewX(1deg) skewY(1deg);
+  -o-transform: scale(1) rotate(-5deg) translateX(0px) translateY(0px)
+    skewX(1deg) skewY(1deg);
+  -ms-transform: scale(1) rotate(-5deg) translateX(0px) translateY(0px)
+    skewX(1deg) skewY(1deg);
+  transform: scale(1) rotate(-5deg) translateX(0px) translateY(0px) skewX(1deg)
+    skewY(1deg);
+  /*-----------------------*/
+  text-shadow: 1px 1px var(--clr-1), 2px 2px var(--clr-1), 3px 3px var(--clr-1),
+    4px 4px var(--clr-1), 5px 5px var(--clr-1), 6px 6px var(--clr-1),
+    7px 7px var(--clr-1), 8px 8px var(--clr-1), 9px 9px var(--clr-1),
+    10px 10px var(--clr-1), 11px 11px var(--clr-1), 12px 12px var(--clr-1),
+    13px 13px var(--clr-1), 14px 14px var(--clr-1), 15px 15px var(--clr-1),
+    16px 16px var(--clr-1), 17px 17px var(--clr-1), 18px 18px var(--clr-1),
+    19px 19px var(--clr-1), 20px 20px var(--clr-1), 21px 21px var(--clr-1),
+    22px 22px var(--clr-1), 23px 23px var(--clr-1), 24px 24px var(--clr-1),
+    25px 25px var(--clr-1), 26px 26px 6px #06520c;
+}
+
+span:nth-child(3),
+span:nth-child(7) {
+  font-size: 60px;
+}
+
+span:nth-child(1),
+span:nth-child(9),
+span:nth-child(5) {
+  font-size: clamp(3rem, 5vw, 7rem);
+  letter-spacing: 5px;
+}
