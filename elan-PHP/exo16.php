@@ -2,8 +2,7 @@
 
 class Author
 {
-  private $name;
-  private $firstName;
+  private $name, $firstName, $bookArray;
 
   public function __construct(
     string $firstName = "Prénom inconnu",
@@ -66,17 +65,14 @@ class Author
 
   public function __toString()
   {
-    return "This author is " . $this->getAuthor() . "</br>" . "Books : ";
+    return "This author is " . $this->getAuthor();
   }
 }
 
 // Books
 class Book
 {
-  private $title;
-  private $author;
-  private $dateOfPublication;
-  private $price;
+  private $title, $author, $dateOfPublication, $price;
 
   public function __construct(
     string $title = "N/A",
@@ -85,9 +81,10 @@ class Book
     int $price = 0
   ) {
     $this->title = $title;
-    $this->author = $author;
     $this->dateOfPublication = $dateOfPublication;
     $this->price = $price;
+    $this->author = $author;
+    $this->author->addBook($this);
   }
   public function getTitle()
   {
@@ -112,7 +109,9 @@ class Book
   {
     $this->author = $author;
     // Ajouter le livre à la bibliographique de l'auteur
-    $author->addBook($this);
+    if ($author == null) {
+      $author->addBook($this);
+    }
     return $this;
   }
 
@@ -153,59 +152,10 @@ class Book
       $this->getPrice();
   }
 }
+$auteur = new Author("David", "Vanmak");
+$livre = new Book("Le livre de la jungle", $auteur, 1990, 23);
+$livre1 = new Book("Le livre de la jungle", $auteur, 1990, 23);
+$livre2 = new Book("Le livre de la jungle", $auteur, 1990, 23);
+$livre3 = new Book("Le livre de la jungle", $auteur, 1990, 23);
 
-$auteur1 = new Author("David", "Vanmak");
-?>
-<h1>Créer un auteur , puis des livres et ajouter les livres à l'auteur</h1>
-<p> Nouvel écrivain <?php echo $auteur1->getAuthor(); ?> </p>
-<p> Les livres qu'il a écrit :  <?php echo $auteur1->getBooks(); ?> </p>
-
-<hr>
-<h2>Livre 1</h2>
-<?php $livre1 = new Book("Le livre de la jungle"); ?>
-<p>Le premier livre est <?php echo $livre1->getTitle(); ?></p>
-<p>L'auteur du livre est <?php echo $livre1->getAuthor(); ?> ( Il n'a pas été défini )</p>
-
-<h3>Définir l'auteur du livre</h3>
-
-<?php $livre1->setAuthor($auteur1); ?>
-<p>L'auteur du livre <?php echo $livre1->getTitle(); ?> est <?php echo $livre1->getAuthor(); ?> </p>
-
-<!-- Ajouter un deuxième livre au même auteur -->
-<h2>Livre 2</h2>
-<?php
-$livre2 = new Book("Ta mère la pute");
-$livre2->setAuthor($auteur1);
-?>
-<p>L'auteur du livre <?php echo $livre2->getTitle(); ?> est <?php echo $livre1->getAuthor(); ?> </p>
-
-
-<h2>Lister les livres de l'auteur</h2>
-
-<p>L'auteur <?php echo $auteur1->getAuthor(); ?> a écrit <?php echo $auteur1->getBooks(); ?></p>
-
-<h1>Créer un auteur ( fait ) et ajouter un livre depuis l'auteur et lister</h1>
-
-<h2>Livre 3</h2>
- 
-<?php $livre3 = new Book("La danse pour les nuls"); ?>
-
-<p>
-    Le dernier putain de livre est <?php echo $livre3->getTitle(); ?>
-</p>
-
-<p>L'auteur n'est forcément pas défini : La preuve <?php echo $livre3->getAuthor(); ?></p>
-
-<h4>Partir de l'auteur et ajouter le dernier livre puis le lister</h4>
-<h1>Attention Est ce que ça va marcher ? JE NE SAIS PAS :o </h1>
-<?php $auteur1->addBook($livre3); ?>
-
-<?php
-$auteur1->addBook($livre3);
-$livre3->setAuthor($auteur1);
-?>
-
-<h4>vérifier l'auteur du livre 3</h4>
-<p> L'auteur du livre <?php echo $livre3->getTitle(); ?> est <?php echo $livre3->getAuthor(); ?></p>
-
-<h1>NON FORCÉMENNNNT</h1>
+echo $auteur->getBooks();

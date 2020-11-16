@@ -55,10 +55,15 @@
       <div class="cell" data-cell></div>
     </div>
     <div class="winning-message" id="winningMessageContainer">
-      <div data-winning-message-text id="winningMessage">WIn !</div>
-      <button id="restartBtn">Restart</button>
+      <div data-winning-message-text id="winningMessage">
+        WIn !
+        <img src="/assets/winner.gif" alt="" />
+      </div>
+      <button class="vibrate-1" id="restartBtn ">Restart</button>
     </div>
-    <audio data-key="82" src="test.mkv"></audio>
+
+    <audio class="winner" src="/assets/winner.mp3"></audio>
+    <audio class="loser" src="/assets/loser.mp3"></audio>
 
     <script src="application.js" async defer></script>
   </body>

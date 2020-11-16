@@ -3,7 +3,8 @@ const elements = {
   board: document.querySelector("#board"),
   winningMessage: document.querySelector("#winningMessage"), //Container,
   winningMessageContainer: document.querySelector("#winningMessageContainer"), //Container,
-
+  resultGif: document.createElement("img"),
+  btn: document.querySelector("button"),
   xClass: "x",
   yClass: "y",
   winningCombinaisons: [
@@ -74,14 +75,20 @@ function checkWin(currentClass) {
 }
 
 function endGame(draw = false) {
-  console.log(isFull());
   if (draw) {
     elements.winningMessage.innerText = "DRAW !";
+    elements.resultGif.src = "/assets/loser.gif";
+    elements.winningMessageContainer.appendChild(elements.resultGif);
+    document.querySelector(".loser").play();
   } else {
     elements.winningMessage.innerText = "WINNER <3";
-    document.querySelector("audio").play("test.mkv");
-    console.log("Winner <3");
+    elements.resultGif.src = "/assets/winner.gif";
+    elements.winningMessageContainer.appendChild(elements.resultGif);
+    document.querySelector(".winner").play();
   }
+  elements.resultGif.classList.add("flicker-in-1");
+  elements.winningMessageContainer.classList.add("rotate-scale-up");
+
   elements.winningMessageContainer.classList.add("show");
 }
 
@@ -96,4 +103,12 @@ function isFull() {
 
 elements.cells.forEach((cell) => {
   cell.addEventListener("click", handleClick, { once: true });
+});
+
+elements.cells.forEach((cell) => {
+  cell.addEventListener("click", handleClick, { once: true });
+});
+
+elements.btn.addEventListener("click", () => {
+  window.location.reload();
 });
