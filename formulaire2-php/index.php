@@ -5,9 +5,9 @@
     <?php include "navbar.php"; ?>
     <div class="container">
         <div class="row">
-            <div class="col s12">
-                <h2 class="white-text">Formulaire</h2>
-            </div>
+            <!-- <div class="col s12"> -->
+            <h2 class="white-text">Formulaire</h2>
+            <!-- </div> -->
         </div>
         <!-- FORM CONTACT -->
         <div class="row">
@@ -34,15 +34,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s2">
+                        <div class="input-field col s12 m4 l2">
                             <button class="btn waves-effect waves-light blue" type="submit" name="submit">Submit
                             </button>
                         </div>
-                        <div class="input-field col s8"></div>
-                        <div class="input-field col s2">
-                            <button class="btn waves-effect waves-light blue" type="submit" name="submit">Submit
-                            </button>
-                        </div>
+
                     </div>
                 </div>
             </form>

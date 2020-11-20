@@ -10,7 +10,8 @@
     <div class="row ">
       <?php if (!isset($_SESSION["products"]) || empty($_SESSION['products'])) {
         //   !isset($_SESSION(['products']) || empty($_SESSION["products"]))
-        echo "<h3> Aucun produit en session...</h3>";
+        echo "<h3> Aucun produit en session...</h3>",
+          "<a href=\"/\" class=\"btn waves-effect waves-teal blue\">Ajouter un produit</a>";
       } else {
         echo "
               <div class=\"padding\">
