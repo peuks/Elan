@@ -33,12 +33,16 @@
                             <label for="quantity">Quantity</label>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s2">
-                        <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
-                            <i class="material-icons right">send</i>
-                        </button>
+                    <div class="row">
+                        <div class="input-field col s2">
+                            <button class="btn waves-effect waves-light blue" type="submit" name="submit">Submit
+                            </button>
+                        </div>
+                        <div class="input-field col s8"></div>
+                        <div class="input-field col s2">
+                            <button class="btn waves-effect waves-light blue" type="submit" name="submit">Submit
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>

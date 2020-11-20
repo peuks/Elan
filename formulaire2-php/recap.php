@@ -29,7 +29,8 @@
         foreach ($_SESSION['products'] as $index => $product) {
           echo "<tr>",
             "<td>" . ($index + 1) . "</td>",
-            "<td> <a href=\"supprimer.php?index=$index\">&times</a> </td>",
+            "<td> <a href=\"traitement.php?action=delete&index=$index\">&times</a> </td>",
+            // traitement.php?action=add
             "<td>" . $product['name'] . "</td>",
             "<td>" . $product['price'] . " € </td>",
             "<td>" . $product['qtt'] . "</td>",
@@ -40,7 +41,7 @@
     </div>
 
   </div>
-  <?php if (isset($_SESSION["products"]) || empty($_SESSION['products'])) {
+  <?php if (!isset($_SESSION["products"])) {
     echo "<div class=\"row\">",
       "<a action=\"traitement.php?action=add\" class=\"btn waves-effect waves-teal\">Vider le panier</a>",
       "</div>";

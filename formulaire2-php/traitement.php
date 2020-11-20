@@ -28,7 +28,9 @@ if (isset($_GET["action"])) {
       $indexProduit = $_GET['index'];
       unset($_SESSION['products'][$indexProduit]);
       $_SESSION["products"] = array_values($_SESSION["products"]);
-      break;
+      header("Location:recap.php");
+      die();
+    // break;
     case "clear":
       unset($_SESSION["products"]);
       // header("Location:recap.php");
