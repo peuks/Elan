@@ -37,7 +37,13 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-
+  <?php include "src/header.php"; ?>
+  <section>
+    <div class="login">
+      <p>Vous êtes connectés</p>
+    </div>
+  </section>
+  <?php include "src/footer.php"; ?>
   <script src="application.js" async defer></script>
 </body>
 
