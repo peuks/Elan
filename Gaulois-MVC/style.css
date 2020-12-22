@@ -1,0 +1,92 @@
+@import url(/home/skuep/code/05-Elan/Gaulois-MVC/src/css/index.css);
+:root {
+  --clr-1: #2b2d42;
+  --clr-2: #e86a92;
+  --clr-3: #f7e733;
+  --clr-4: #f7f7f9;
+  --clr-5: #41e2ba;
+  --clr-6: #c1666b;
+  --dark80: rgba(48, 79, 89, 0.8);
+  --dark60: rgba(48, 79, 89, 0.6);
+  --transition: all 0.3s ease 0s;
+  --ff: "Inter", sans-serif;
+  --fw-reg: 300;
+  --fw-bold: 900;
+  --fs-h1: 2.2rem;
+  --fs-h2: 2rem;
+  --fs-h3: 1.6rem;
+  --fs-h4: 1.4rem;
+  --fs-h5: 1.2rem;
+  --fs-body: 1rem;
+}
+
+/* Reset class*/
+* {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--dark60)), to(var(--dark80))), url("./assets/background.jpg");
+  background: linear-gradient(var(--dark60), var(--dark80)), url("./assets/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: var(--ff);
+  color: var(--clr-4);
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/* TYPOGRAPHY */
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+}
+
+h5 {
+  font-size: var(--fs-h5);
+}
+
+a {
+  color: var(--clr-4);
+}
+
+/* Header
+
+/* Footer
+
+/* Your template */
+/*# sourceMappingURL=style.css.map */
