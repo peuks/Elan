@@ -20,9 +20,7 @@ $response = RouterService::handleRequest($_GET);
 ob_start(); // temporisation de sortie  - output buffer
 
 //tous les affichages à partir de çb_start() se stockent dans un tampon de sortie 
-include "template/store/" . $response["view"];
-echo "kikoo";
-print 2 + 1;
+include "template/" . $response["view"];
 
 // Ici je récupère ce qu'il y a dans le tampon et le met dans nue variable 
 //  (au lieu de l'afficher directement)
