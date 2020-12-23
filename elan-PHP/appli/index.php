@@ -1,63 +1,35 @@
 <?php
-session_start();
-require_once "MessageService.php";
+    //CECI EST LE FRONT CONTROLLER ! 
+    //c'est le seul fichier en dialogue avec l'utilisateur
+    require "vendor/autoload.php";
+    require "config.php";
 
-// $MessageService::getMessage("error", "Je vous aime");
-// $MessageService::getMessage("succes", "Et je vous kiffe !");
-// $MessageService::getMessage("error", "Et je vous admire, en plus");
-
-// var_dump(MessageService::getMessage());
-
-// J"intègre le code présent dans MessageService.php
-?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <title>Ajout produit</title>
-    </head>
-    <body>
-        <?php include "menu.php"; ?>
-        <?php
-        if (MessageService::getMessage("error")) {
-          echo "<ul id='error'>";
-        }
-        foreach (MessageServic::getMessage("error") as $msg) {
-          echo "<li>$msg</li>";
-        }
-        echo "</ul>";
-
-        if (MessageService::getMessage("succes")) {
-          echo "<ul id='succes'>";
-        }
-        foreach (MessageServic::getMessage("succes") as $msg) {
-          echo "<li>$msg</li>";
-        }
-        echo "</ul>";
-        ?>
+    use App\Service\RouterService;
     
-        <form action="traitement.php?action=add" method="post">
-            <h1>Ajouter un produit</h1>
-            <p>
-                <label>Nom du produit&nbsp;: </label>
-                <input type="text" name="name">
-            </p>
-            <p>
-                <label>Prix du produit&nbsp;: </label>
-                <input type="number" step="any" name="price">
-            </p>
-            <p>
-                <label>Quantité désirée&nbsp;:  </label>
-                <input type="number" name="qtt" value="1">
-            </p>
-            <p class="submit-row">
-                <input type="submit" name="submit" value="Ajouter le produit">
-            </p>
-        </form>
-        
-    </body>
-</html>
+    session_start();
+
+    /*
+        $response est le retour du contrôleur nécessaire à la requète du client
+        [
+            "view" => la vue à afficher au client,
+            "data" => les données pour remplir la vue
+        ]
+    */
+    $response = RouterService::handleRequest($_GET);
+
+/*-----CHARGEMENT DE LA REPONSE AU CLIENT-----*/
+    //démarre une tamporisation de sortie - output buffer
+    ob_start();
+    
+    //tous les affichages à partir de ob_start() se stockent dans un tampon de sortie
+    include TEMPLATE_DIR.$response["view"];
+
+    //ici, je récupère ce qu'il y a dans le tampon et le met dans une variable 
+    //(au lieu de l'afficher directement)
+    $page = ob_get_contents();
+
+    //je vide le tampon, qui ne me sert plus à rien depuis qu'on a stocké dans une variable
+    //le contenu de celui-ci
+    ob_end_clean();
+    
+    include TEMPLATE_DIR."layout.php";
