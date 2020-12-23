@@ -1,14 +1,16 @@
 {
     "name": "stagiaire/appli",
     "type": "project",
-    "description": "Tiens la voila ta description !!",
+    "description" : "Tiens la voila ta description !!",
     "license": "GNU",
-    "authors": [{
-        "name": "Squalli",
-        "email": "virgile.gibello@gmail.com"
-    }],
+    "authors": [
+        {
+            "name": "Squalli",
+            "email": "virgile.gibello@gmail.com"
+        }
+    ],
     "require": {},
-
+    
     "autoload": {
         "psr-4": {
             "App\\": "src/"
